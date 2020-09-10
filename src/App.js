@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Test from './pages/Test';
+import Home from './pages/Home';
+import Questions from './pages/Questions';
+import Singlepaper from './pages/Singlepaper';
+import Error from './pages/Error';
+import Login from './pages/Login';
+import {Route,Switch} from 'react-router-dom';
+
+
+import Paper from './pages/Paper';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Switch>
+    <Route exact path='/login' component={Login} />
+    <Route exact path='/' component={Home} />
+    <Route exact path='/questions' component={Questions} />
+    <Route exact path='/questions/:single' component={Singlepaper} />
+    <Route exact path='/questions/:single/:year' component={Paper}/>
+    <Route exact path='/questions//pdf' component={Test}/>
+    
+    <Route component={Error} />
+
+    </Switch>
+    </>
   );
 }
 

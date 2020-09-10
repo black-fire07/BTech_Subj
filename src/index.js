@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+//import './index.css';
+import {BrowserRouter as Router} from 'react-router-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {QuesProvider} from './Context';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <QuesProvider>
+  <Router>
+    <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Router>
+  </QuesProvider>,
   document.getElementById('root')
 );
 
